@@ -38,35 +38,35 @@
 #     Online - can sort a list as it receives it.
 #
 def insertion_sort(data, compare_func):
-	# List parameters are mutable in Python, so we make a copy of it so that the
-	# data parameter isn't modified:
-	array = list(data)
+        # List parameters are mutable in Python, so we make a copy of it so that the
+        # data parameter isn't modified:
+        array = list(data)
 
-	for j in range(1, len(array)):
-		key = array[j]
-		# Insert array[j] into sorted sequence array[0..j-1].
-		i = j - 1
-		while i >= 0 and compare_func(array[i], key) > 0:
-			array[i + 1] = array[i]
-			i = i - 1
-		array[i + 1] = key
+        for j in range(1, len(array)):
+                key = array[j]
+                # Insert array[j] into sorted sequence array[0..j-1].
+                i = j - 1
+                while i >= 0 and compare_func(array[i], key) > 0:
+                        array[i + 1] = array[i]
+                        i = i - 1
+                        array[i + 1] = key
 
-	return array
+        return array
 
 # Our comparison function. Accepts two numerical parameters 'a' and 'b' and
 # returns whether 'a' is greater than, equal to, or less than 'b'.
 def compare(a, b):
-	if a < b:     # Less than
-		return -1
-	elif a > b:   # Greater than
-		return 1
-	else:         # Equal to
-		return 0
+        if a < b:     # Less than
+                return -1
+        elif a > b:   # Greater than
+                return 1
+        else:         # Equal to
+                return 0
 
 if __name__ == "__main__":
-	# Simple test
-	a = [31, 41, 59, 26, 41, 58]
-	print "Unsorted:", a
-	b = insertion_sort(a, compare)
-	print "Sorted:  ", b
-	assert b == [26, 31, 41, 41, 58, 59]
+        # Simple test
+        a = [31, 41, 59, 26, 41, 58]
+        print "Unsorted:", a
+        b = insertion_sort(a, compare)
+        print "Sorted:  ", b
+        assert b == [26, 31, 41, 41, 58, 59]
