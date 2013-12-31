@@ -1,9 +1,6 @@
 #!/usr/bin/env python
-
-# Introduction to Algorithms, section 2.1, page 16.
-
 #
-# The insertion sort.
+## The insertion sort:
 #
 # Accepts an array of objects 'data' {d1,d2,...dn} and returns a permutation of
 # the input sequence such that {d'1<=d'2<=...<=d'n}. The 'compare_func' is a
@@ -19,23 +16,29 @@
 # subarray from right to left. This process is repeated until their are no items
 # left in the unordered subarray.
 #
-# Insertion sort is a quadratic algorithm:
+## Performance:
 #
-#     Worst case performance:   O(n^2)
-#     Best case performance:    O(n)
-#     Average case performance: O(n^2)
-#     Actual performance:       O(n+d), where d is the number of inversions
-#     Memory usage:             O(1), in-place
+# Worst case performance:   O(n^2)
+# Best case performance:    O(n)
+# Average case performance: O(n^2)
+# Actual performance:       O(n+d), where d is the number of inversions
+# Memory usage:             O(1), in-place
 #
-# Advantages:
+## Advantages:
 #
-#     Efficient for small data sets.
-#     Efficient for data sets that are already largely sorted.
-#     More efficient in practice than other simple quadratic algorithms
-#      (e.g. selection sort, bubble sort).
-#     Stable - does not change the relative order of elements with equal keys.
-#     In-place - only requires a constant amount O(1) of additional memory.
-#     Online - can sort a list as it receives it.
+# Efficient for small data sets.
+# Efficient for data sets that are already largely sorted.
+# More efficient in practice than other simple quadratic algorithms
+#  (e.g. selection sort, bubble sort).
+# Stable - does not change the relative order of elements with equal keys.
+# In-place - only requires a constant amount O(1) of additional memory.
+# Online - can sort a list as it receives it.
+#
+## References:
+#
+# Introduction to Algorithms, section 2.1, page 16.
+#
+## Code:
 #
 def insertion_sort(data, compare_func):
         # List parameters are mutable in Python, so we make a copy of it so that the
