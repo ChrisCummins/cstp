@@ -3,10 +3,7 @@
 ## The merge sort:
 #
 # Accepts an array of objects 'data' {d1,d2,...dn} and returns a permutation of
-# the input sequence such that {d'1<=d'2<=...<=d'n}. The 'compare_func' is a
-# lambda function which compares two elements from within the data set and
-# returns 1, 0 or -1 depending on whether the value of the first key is greater,
-# equal, or lesser than that of the second key.
+# the input sequence such that {d'1<=d'2<=...<=d'n}.
 #
 # The merge sort is a divide and conquer algorithm. It works by
 # dividing the unsorted array into n arrays, each containing 1
