@@ -43,6 +43,8 @@
 #
 ## Code:
 #
+import lib
+
 def heap_sort(data):
 
     # Input a heap array and an index into that array. It lets the
@@ -106,9 +108,4 @@ def heap_sort(data):
     return data
 
 if __name__ == "__main__":
-    # Simple test
-    a = [31, 41, 59, 26, 41, 58]
-    print "Unsorted:", a
-    heap_sort(a)
-    print "Sorted:  ", a
-    assert a == [26, 31, 41, 41, 58, 59]
+    lib.test_array_sort(heap_sort)

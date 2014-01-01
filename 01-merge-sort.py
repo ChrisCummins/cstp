@@ -37,6 +37,8 @@
 #
 ## Code:
 #
+import lib
+
 def merge_sort(data):
 
     # Receives two lists as arguments, and returns a sorted list
@@ -74,8 +76,4 @@ def merge_sort(data):
     return merge(left, right)
 
 if __name__ == "__main__":
-    # Simple test
-    a = [31, 41, 59, 26, 41, 58]
-    print "Unsorted:", a
-    b = merge_sort(a)
-    print "Sorted:  ", b
+    lib.test_array_sort(merge_sort)
