@@ -42,43 +42,43 @@
 #
 def merge_sort(data):
 
-        # Receives two lists as arguments, and returns a sorted list
-        # of both.
-        def merge(left, right):
-                result = []
+    # Receives two lists as arguments, and returns a sorted list
+    # of both.
+    def merge(left, right):
+        result = []
 
-                while (len(left) > 0) or (len(right) > 0):
-                        if len(left) > 0 and len(right) > 0:
-                                if left[0] > right[0]:
-                                        result.append(right[0])
-                                        right.pop(0)
-                                else:
-                                        result.append(left[0])
-                                        left.pop(0)
-                        elif len(right) > 0:
-                                for i in right:
-                                        result.append(i)
-                                        right.pop(0)
-                        else:
-                                for i in left:
-                                        result.append(i)
-                                        left.pop(0)
-                return result
+        while (len(left) > 0) or (len(right) > 0):
+            if len(left) > 0 and len(right) > 0:
+                if left[0] > right[0]:
+                    result.append(right[0])
+                    right.pop(0)
+                else:
+                    result.append(left[0])
+                    left.pop(0)
+            elif len(right) > 0:
+                for i in right:
+                    result.append(i)
+                    right.pop(0)
+            else:
+                for i in left:
+                    result.append(i)
+                    left.pop(0)
 
-        # A list of 1 element or an empty list is considered sorted.
-        if len(data) <= 1:
-                return data
+        return result
 
-        middle = int(len(data)/2)
-        left = merge_sort(data[:middle])
-        right = merge_sort(data[middle:])
+    # A list of 1 element or an empty list is considered sorted.
+    if len(data) <= 1:
+        return data
 
-        return merge(left, right)
+    middle = int(len(data)/2)
+    left = merge_sort(data[:middle])
+    right = merge_sort(data[middle:])
+
+    return merge(left, right)
 
 if __name__ == "__main__":
-        # Simple test
-        a = [31, 41, 59, 26, 41, 58]
-        print "Unsorted:", a
-        b = merge_sort(a)
-        print "Sorted:  ", b
-        assert b == [26, 31, 41, 41, 58, 59]
+    # Simple test
+    a = [31, 41, 59, 26, 41, 58]
+    print "Unsorted:", a
+    b = merge_sort(a)
+    print "Sorted:  ", b
