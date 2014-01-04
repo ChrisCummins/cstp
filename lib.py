@@ -46,4 +46,27 @@ def test_array_sort(sort_algorithm):
         # Confirm that the sort worked
         assert array_is_sorted(sorted_data)
 
-        print "%fs  %d integers" % (elapsed_time, test_size)
+        print "%fs\t%d integers" % (elapsed_time, test_size)
+
+def test_hash_table(hash_table_class):
+
+    for i in range(4):
+        test_size = 10 ** (i + 1)
+        h = hash_table_class(test_size * 2)
+
+        # Populate table
+        for i in range(test_size):
+            h.set(i, i * 10)
+
+        # Time the element retrieval
+        t0 = time()
+        for i in range(test_size):
+            assert h.get(i) == i * 10
+        t1 = time()
+        elapsed_time = t1 - t0
+
+        print ("%f s\t%f s/entry\t%d entries"
+               % (elapsed_time, elapsed_time / test_size, test_size))
+
+        # Check that looking up an item which doesn't exist returns nothing
+        assert h.get(-1) == None
