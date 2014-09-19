@@ -44,26 +44,27 @@ def merge_sort(data):
     # Receives two lists as arguments, and returns a sorted list
     # of both.
     def merge(left, right):
-        result = []
+        sorted = []
 
-        while (len(left) > 0) or (len(right) > 0):
-            if len(left) > 0 and len(right) > 0:
-                if left[0] > right[0]:
-                    result.append(right[0])
+        while len(left) or len(right):
+            # If both the left and right lists contain elements, then
+            # compare:
+            if len(left) and len(right):
+                if right[0] < left[0]:
+                    sorted.append(right[0])
                     right.pop(0)
                 else:
-                    result.append(left[0])
+                    sorted.append(left[0])
                     left.pop(0)
-            elif len(right) > 0:
-                for i in right:
-                    result.append(i)
-                    right.pop(0)
+            # Else append the remainder of either list:
+            elif len(right):
+                sorted += right
+                right = []
             else:
-                for i in left:
-                    result.append(i)
-                    left.pop(0)
+                sorted += left
+                left = []
 
-        return result
+        return sorted
 
     # A list of 1 element or an empty list is considered sorted.
     if len(data) <= 1:
@@ -75,5 +76,5 @@ def merge_sort(data):
 
     return merge(left, right)
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     lib.test_array_sort(merge_sort)
