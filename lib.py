@@ -13,7 +13,7 @@ def array_is_sorted(array):
 
         if next == len(array):
             return True
-        elif array[next] < array[index]:
+        elif array[index] > array[next]:
             return False
 
 # Generate an array of random integers of a given length. This method
